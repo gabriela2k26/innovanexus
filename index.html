@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="website icon" type="png" href="icono.png">
+
+    <style>
+
+
+@font-face {
+  font-family: 'MiFuentePersonalizada';
+  src: url('Montserrat-Bold.ttf') format('truetype');
+
+} 
+
+@font-face {
+    font-family: 'mifuente' ;
+    src: url('Montserrat-Regular.ttf');
+
+}
+.fade-up {
+  opacity: 0; /* Initial opacity is 0 */
+  transform: translateY(20px); /* Initial translate is 20px down */
+  transition: opacity 1s, transform 1s; /* Transition effect for opacity and transform */
+}
+
+.fade-up.is-visible {
+  opacity: 1; /* Opacity is 1 when the element is visible */
+  transform: translateY(0); /* Translate is 0 when the element is visible */
+}
+        /* Estilos generales */
+        body {
+            background-color: #4D82BC; /* Fondo azul */
+            margin: 0;
+        }
+
+        /* Estilos para el círculo */
+        .circle {
+    position: fixed; /* Agregamos position: fixed */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Establecemos el ancho en 100vw */
+    height: 100vh; /* Establecemos el alto en 100vh */
+    background-color: #005187; /* Círculo rojo */
+    clip-path: circle(0%);
+}
+
+        /* Estilos para el texto */
+        .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: auto ;
+            font-family: 'MiFuentePersonalizada', 'mifuente'; /* Ruta a tu fuente personalizada */
+            color: #ffffff; /* Texto blanco */
+            text-align: left;
+            z-index: 1; /* Para que se posicione encima del círculo */
+        }
+
+        @media only screen and (max-width: 400px) {
+    .text {
+        padding: 40px; /* Agregamos un margen de 30px en todos los lados solo para las pantallas pequeñas */
+    }
+}
+
+.header{
+
+            height: 100vh; /* Agregamos esto para que el contenedor ocupe toda la pantalla */
+            width: auto; /* Agregamos esto para que el contenedor ocupe toda la pantalla */
+            position: relative; /* Agregamos esto para que el fondo de la imagen se muestre detrás del contenedor */
+            padding: auto;
+}
+        header img {
+    max-width: 100%; /* Aseguramos que la imagen no sobrepase el ancho del contenedor */
+    height: auto; /* Mantenemos la relación de aspecto de la imagen */
+    margin: 0 auto; /* Centramos la imagen horizontalmente */
+}
+@media only screen and (max-width: 768px) {
+    header img {
+        width: 100%; /* Forzamos que la imagen ocupe todo el ancho del contenedor en la vista móvil */
+    }
+}
+
+       
+
+        
+
+        /* Animación del círculo */
+        @keyframes circle-in-top-left {
+    from {
+        clip-path: circle(0% at top 0 left 0);
+    }
+    to {
+        clip-path: circle(150% at top left);
+    }
+}
+
+        @keyframes circle-out-top-left {
+    from {
+        clip-path: circle(150% at top left);
+    }
+    to {
+        clip-path: circle(0% at top 0 left 0);
+    }
+}
+
+        [transition-style="in:circle:top-left"] {
+            animation: 4.5s cubic-bezier(.25, 1, .30, 1) circle-in-top-left both;
+        }
+
+        [transition-style="out:circle:top-left"] {
+            animation: 2s cubic-bezier(.25, 1, .30, 1) circle-out-top-left both;
+        }
+        .button {
+  background-color: transparent; /* Fondo transparente */
+  border: 2px solid #ffffff; /* Borde blanco de 2px */
+  border-radius: 10px; /* Esquinas redondeadas con un radio de 10px */
+  padding: 10px 20px; /* Espacio entre el texto y el borde */
+  color: #ffffff; /* Letras blancas */
+  font-family: sans-serif; /* Fuente sans-serif del dispositivo */
+  cursor: pointer; /* Cursor en forma de mano para indicar que es un botón */
+  transition: transform 0.3s; /* Animación de transformación durante 0.3 segundos */
+}
+
+.button:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Fondo semitransparente al pasar el mouse */
+  border-color: #ffffff; /* Borde blanco al pasar el mouse */
+  transform: scale(1.1); /* Agrandar el botón un 10% cuando se pasa el cursor */
+
+}
+    </style>
+</head>
+<body>
+ 
+    <div class="circle" transition-style="in:circle:top-left"></div>
+
+
+
+    <div class="text">
+
+        
+
+        <br>
+
+       
+      
+        <h1 >¡BIENVENID@!</h1>
+        <p  style="font-family: 'mifuente';">En Innova Nexus, creemos en el poder de la innovación y la conexión. Te ayudaremos a construir y fortalecer relaciones significativas a través de estrategias creativas y efectivas. Juntos, podemos crear una comunidad dinámica y comprometida que impulse tu marca hacia el éxito.
+            
+            Explora nuestro sitio para descubrir cómo podemos ayudarte a alcanzar tus objetivos y no dudes en ponerte en contacto para comenzar esta emocionante aventura juntos.
+            
+        </p>
+    
+        <p  style="font-family: 'mifuente';">¡Gracias por visitar Innova Nexus!</p>
+        <br>
+    
+        <a href="web/in.html">
+            <button class="button" style="font-family: 'mifuente';">Click aqui para comenzar</button>
+        </a>
+    </div>
+
+   
+
+    <script>
+        const textElements = document.querySelectorAll('h1, p, li, h4'); /* Select all h1, p, and li elements */
+  
+  const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('fade-up', 'is-visible');
+    }
+  });
+  });
+  
+  textElements.forEach((element) => {
+  observer.observe(element);
+  });
+    </script>
+  
+
+    <script>
+        let circle = document.querySelector(".circle");
+        let isCircleVisible = true;
+
+        
+        document.body.addEventListener("click", function() {
+            if (isCircleVisible) {
+                circle.setAttribute("transition-style", "out:circle:top-left");
+                isCircleVisible = false;
+            } else {
+                circle.setAttribute("transition-style", "in:circle:top-left");
+                isCircleVisible = true;
+            }
+        });
+    </script>
+</body>
+</html>

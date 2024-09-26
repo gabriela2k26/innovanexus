@@ -1,0 +1,4 @@
+Copyright (c) 2024, Innova Nexus. Todos los derechos reservados.
+
+Este código es propiedad de Innova Nexus y está protegido por las leyes de derechos de autor. No se permite la modificación, distribución o uso de este código sin el permiso expreso por escrito de Innova Nexus. Este archivo es solo para visualización y no debe ser alterado de ninguna manera.
+
